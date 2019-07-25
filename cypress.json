@@ -1,0 +1,16 @@
+{
+	"userAgent": "scrooge-automation",
+	"chromeWebSecurity": false,
+    "baseUrl": "https://www.tokopedia.com",
+    "integrationFolder": "cypress/tests",
+    "pageLoadTimeout": 80000,
+    "defaultCommandTimeout":20000,
+    "blacklistHosts": "*googletagmanager.com",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reportDir": "cypress/results",
+      "overwrite": false,
+      "html": false,
+      "json": true
+  }
+}

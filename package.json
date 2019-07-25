@@ -1,0 +1,38 @@
+{
+  "name": "cypress-scrooge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mocha-slack-reporter": "0.0.8",
+    "nodemailer": "^5.1.1",
+    "request": "^2.88.0",
+    "slack-webhook": "^1.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^3.1.4",
+    "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.18.0",
+    "mocha-multi-reporters": "^1.1.7",
+    "mochawesome": "^3.1.1",
+    "mochawesome-merge": "^1.0.5",
+    "mochawesome-report-generator": "^3.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "email": "node .\\cypress\\nodemailer\\gmail.js",
+    "slack": "node .\\mochawsome-report\\slack.js",
+    "cypressopen": "cypress open",
+    "cypress": "cypress run",
+    "cypress_report1": "npm run delete:reports && cypress run && npm run merge_json",
+    "cypress_report2": "cypress run --reporter mochawesome --reporter-options 'inline=true",
+    "cypress_report": "cypress run --reporter mochawesome --reporter-options 'inline=true && npm run email && exit 0 || npm run email",
+    "delete:reports": "rm cypress/results/* && rm mochawesome.json || true",
+    "prereport": "npm run delete:reports",
+    "merge_json": "npx mochawesome-merge --reportDir cypress/results > mochawesome.json && npx marge mochawesome.json --timestamp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
